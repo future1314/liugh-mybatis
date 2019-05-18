@@ -5,16 +5,18 @@ import com.liugh.bean.User;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 
-//@Component(value = "factory")
+@Component(value = "factory")
 public class UserFactoryBean implements FactoryBean {
     @Override
     public Object getObject() throws Exception {
+        System.out.println("...getObject..");;
         return new Log();
 //      return new UserFactoryBean();
     }
 
     @Override
     public Class<?> getObjectType() {
+        System.out.println("---getObjectType---");
         return User.class;
     }
 

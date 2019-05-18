@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
     <bean id="factory" class="com.liugh.UserFactoryBean"/>
-    <bean id="user" class="com.liugh.bean.User"/>
+    <!--<bean id="user" class="com.liugh.bean.User"/>-->
 
 </beans>
 
