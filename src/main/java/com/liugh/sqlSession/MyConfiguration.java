@@ -94,15 +94,15 @@ public class MyConfiguration {
             for(Iterator rootIter = root.elementIterator();rootIter.hasNext();) {//遍历根节点下所有子节点
                 Function fun = new Function();    //用来存储一条方法的信息
                 Element e = (Element) rootIter.next(); 
-                String sqltype = e.getName().trim();//
-                String funcName = e.attributeValue("id").trim();
-                String sql = e.getText().trim();
+                String sqltype = e.getName().trim();//select
+                String funcName = e.attributeValue("id").trim();//getUserById
+                String sql = e.getText().trim();//sql语句
                 String resultType = e.attributeValue("resultType").trim();
                 fun.setSqltype(sqltype);
                 fun.setFuncName(funcName);//
                 Object newInstance=null;
 				try {
-					newInstance = Class.forName(resultType).newInstance();//
+					newInstance = Class.forName(resultType).newInstance();//返回结果
 				} catch (InstantiationException e1) {
 					e1.printStackTrace();
 				} catch (IllegalAccessException e1) {
