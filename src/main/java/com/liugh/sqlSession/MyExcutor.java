@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.liugh.bean.User;
 
 
@@ -21,14 +24,16 @@ public class MyExcutor implements Excutor{
 	            //设置参数
 	            pre.setString(1, parameter.toString());
 	            set = pre.executeQuery();  
-	            User u=new User();  
+	            List<User> us=new ArrayList<User>();
 	            //遍历结果集
-	            while(set.next()){  
+	            while(set.next()){
+					User u=new User();
 	                u.setId(set.getString(1));
 	                u.setUsername(set.getString(2)); 
 	                u.setPassword(set.getString(3));
+	                us.add(u);
 	            }  
-	            return (T) u;  
+	            return (T) us;
 	        } catch (SQLException e) {  
 	            e.printStackTrace();  
 	        } finally{

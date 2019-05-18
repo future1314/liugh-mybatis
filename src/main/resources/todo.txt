@@ -1,0 +1,3 @@
+List<User> getUserById(String id);
+结果集怎么返回自动映射多个列
+
