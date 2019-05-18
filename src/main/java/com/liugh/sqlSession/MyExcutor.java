@@ -33,7 +33,7 @@ public class MyExcutor implements Excutor{
 	                u.setPassword(set.getString(3));
 	                us.add(u);
 	            }  
-	            return (T) us;
+	            return (T) us;//T
 	        } catch (SQLException e) {  
 	            e.printStackTrace();  
 	        } finally{

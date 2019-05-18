@@ -19,7 +19,7 @@ public class MyMapperProxy implements InvocationHandler{
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		MapperBean readMapper = myConfiguration.readMapper("UserMapper.xml");
+		MapperBean readMapper = myConfiguration.readMapper("UserMapper.xml");//
 		//是否是xml文件对应的接口
 		if(!method.getDeclaringClass().getName().equals(readMapper.getInterfaceName())){
 			return null;  
@@ -29,7 +29,7 @@ public class MyMapperProxy implements InvocationHandler{
 			for (Function function : list) {
 			//id是否和接口方法名一样
 			 if(method.getName().equals(function.getFuncName())){  
-		            return mySqlsession.selectOne(function.getSql(), String.valueOf(args[0]));  
+		            return mySqlsession.selectOne(function.getSql(), String.valueOf(args[0]));  //执行的动作 和参数 要动态
 		        }  
 			}
 		}

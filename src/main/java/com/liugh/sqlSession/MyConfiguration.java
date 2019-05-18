@@ -45,10 +45,10 @@ public class MyConfiguration {
 		String username = null;
 		String password = null;
 		//获取属性节点
-		for (Object item : node.elements("property")) {
+		for (Object item : node.elements("property")) {//
 			Element i = (Element) item;			
 			String value = getValue(i);
-			String name = i.attributeValue("name");
+			String name = i.attributeValue("name");//
 			if (name == null || value == null) {
 				throw new RuntimeException("[database]: <property> should contain name and value");
 			}
@@ -76,7 +76,7 @@ public class MyConfiguration {
 	
 	//获取property属性的值,如果有value值,则读取 没有设置value,则读取内容
 	private  String getValue(Element node) {
-		return node.hasContent() ? node.getText() : node.attributeValue("value");
+		return node.hasContent() ? node.getText() : node.attributeValue("value");//
 	}
 	
 	
@@ -94,15 +94,15 @@ public class MyConfiguration {
             for(Iterator rootIter = root.elementIterator();rootIter.hasNext();) {//遍历根节点下所有子节点
                 Function fun = new Function();    //用来存储一条方法的信息
                 Element e = (Element) rootIter.next(); 
-                String sqltype = e.getName().trim();
+                String sqltype = e.getName().trim();//
                 String funcName = e.attributeValue("id").trim();
                 String sql = e.getText().trim();
                 String resultType = e.attributeValue("resultType").trim();
                 fun.setSqltype(sqltype);
-                fun.setFuncName(funcName);
+                fun.setFuncName(funcName);//
                 Object newInstance=null;
 				try {
-					newInstance = Class.forName(resultType).newInstance();
+					newInstance = Class.forName(resultType).newInstance();//
 				} catch (InstantiationException e1) {
 					e1.printStackTrace();
 				} catch (IllegalAccessException e1) {
